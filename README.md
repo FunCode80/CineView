@@ -57,4 +57,4 @@ Dit project maakt gebruik van de [TMDB API](https://developer.themoviedb.org), m
 
 ### Code
 Dit project is gelicenseerd onder de **MIT-licentie**.  
-Copyright © 2024 **CineView**
+Copyright © 2026 **CineView**
