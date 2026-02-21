@@ -1,0 +1,263 @@
+/* =========================================
+   1. VARIABELEN & RESET
+   ========================================= */
+:root {
+  --primary: #e50914;        /* Netflix Rood */
+  --bg-dark: #141414;        /* Achtergrondkleur */
+  --card-bg: #1f1f1f;        /* Kaart achtergrond */
+  --text-main: #ffffff;      /* Hoofdtekst */
+  --text-dim: #a3a3a3;       /* Subtekst / Grijze tekst */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+/* =========================================
+   2. NAVIGATIE (Navbar.jsx)
+   ========================================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-dim);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--primary);
+}
+
+.nav-links a.active {
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 5px;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+/* =========================================
+   3. HERO & ZOEKEN (Home.jsx)
+   ========================================= */
+.hero {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 800;
+}
+
+.search-form {
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  gap: 10px;
+}
+
+.search-form input {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: 1px solid #333;
+  background: rgba(255,255,255,0.05);
+  color: white;
+  outline: none;
+}
+
+.search-form button {
+  padding: 0 25px;
+  border-radius: 30px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* =========================================
+   4. SECTIE HEADERS (Home & Pages)
+   ========================================= */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 1.4rem;
+  border-left: 4px solid var(--primary);
+  padding-left: 15px;
+}
+
+.see-all-btn {
+  text-decoration: none;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* =========================================
+   5. MOVIE GRID & CARD (MovieCard.jsx)
+   ========================================= */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+.movie-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+}
+
+.movie-card:hover {
+  transform: translateY(-10px);
+}
+
+.card-image-container {
+  position: relative;
+  aspect-ratio: 2/3;
+}
+
+.card-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-info {
+  padding: 15px;
+}
+
+.movie-info h3 {
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+/* =========================================
+   6. FAVORITES BUTTON (Lucide Heart)
+   ========================================= */
+.fav-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.fav-btn.active {
+  background: rgba(229, 9, 20, 0.2);
+  border-color: var(--primary);
+}
+
+/* =========================================
+   7. PAGINERING (Popular.jsx)
+   ========================================= */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 50px 0;
+}
+
+.pagination button {
+  padding: 10px 25px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.pagination button:disabled {
+  background: #333;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   8. LOADING & EMPTY STATES
+   ========================================= */
+.loader-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-top: 2px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.no-results {
+  text-align: center;
+  padding: 50px;
+  color: var(--text-dim);
+}
