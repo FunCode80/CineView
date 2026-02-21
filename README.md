@@ -3,7 +3,7 @@
 CineView is een moderne webapplicatie gebouwd met **React** en de **TMDB API**. Hiermee kunnen gebruikers populaire films ontdekken en hun favoriete titels zoeken.
 
 ## 🚀 Live Demo
-[LINK NAAR JE VERCEL/NETLIFY DEPLOYMENT]
+https://cine-view-dusky.vercel.app/
 
 ## 🛠 Features
 - **Real-time Data:** Koppeling met de [TMDB API](https://www.themoviedb.org).
