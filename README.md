@@ -47,3 +47,14 @@ Een moderne, responsive webapplicatie gebouwd met React en Vite, waarmee gebruik
     Icons: Lucide React
     API: TMDB REST API
     Deployment: Vercel
+
+## ⚖️ Licentie & Bronvermelding
+
+### Data & API
+Dit project maakt gebruik van de [TMDB API](https://developer.themoviedb.org), maar wordt niet ondersteund of gecertificeerd door TMDB. Alle filmdata en afbeeldingen zijn eigendom van hun respectievelijke eigenaren.
+
+<img src="https://www.themoviedb.org" width="100" alt="TMDB Logo">
+
+### Code
+Dit project is gelicenseerd onder de **MIT-licentie**.  
+Copyright © 2024 **CineView**
