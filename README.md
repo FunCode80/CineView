@@ -53,7 +53,7 @@ Een moderne, responsive webapplicatie gebouwd met React en Vite, waarmee gebruik
 ### Data & API
 Dit project maakt gebruik van de [TMDB API](https://developer.themoviedb.org), maar wordt niet ondersteund of gecertificeerd door TMDB. Alle filmdata en afbeeldingen zijn eigendom van hun respectievelijke eigenaren.
 
-<img src="https://www.themoviedb.org" width="100" alt="TMDB Logo">
+<img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" width="100" alt="TMDB Logo">
 
 ### Code
 Dit project is gelicenseerd onder de **MIT-licentie**.  
