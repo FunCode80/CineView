@@ -3,7 +3,8 @@ import { Heart } from 'lucide-react';
 const IMG_PATH = "https://image.tmdb.org/t/p/w500";
 const BACKDROP_PATH = "https://image.tmdb.org";
 
-function MovieCard({ movie, onToggleFav, isFavorite }) {
+function MovieCard({ movie, onToggleFav, isFavorite, onMovieSelect }) {
+    
   const handleFavClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -11,7 +12,7 @@ function MovieCard({ movie, onToggleFav, isFavorite }) {
   };
 
   return (
-    <div className="movie-card">
+    <div className="movie-card" onClick={() => onMovieSelect(movie)}>
       <div className="card-image-container">
         <button 
           className={`fav-btn ${isFavorite ? 'active' : ''}`}

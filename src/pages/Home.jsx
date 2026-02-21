@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { fetchPopularMovies, fetchTrendingMovies, searchMovies } from '../services/tmdpApi';
 import MovieCard from '../components/MovieCard';
 
-function Home({ toggleFav, favs }) {
+function Home({ toggleFav, favs, onMovieSelect  }) {
   const [popular, setPopular] = useState([]);
   const [trending, setTrending] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
@@ -64,7 +64,8 @@ function Home({ toggleFav, favs }) {
             key={m.id} 
             movie={m} 
             onToggleFav={toggleFav} 
-            isFavorite={favs.some(f => f.id === m.id)} 
+            isFavorite={favs.some(f => f.id === m.id)}
+            onMovieSelect={onMovieSelect}
           />
         ))}
       </div>

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { fetchPopularMovies } from '../services/tmdpApi';
 import MovieCard from '../components/MovieCard';
 
-function Popular({ toggleFav, favs }) {
+function Popular({ toggleFav, favs, onMovieSelect }) {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -49,7 +49,8 @@ function Popular({ toggleFav, favs }) {
                 key={m.id} 
                 movie={m} 
                 onToggleFav={toggleFav} 
-                isFavorite={favs.some(f => f.id === m.id)} 
+                isFavorite={favs.some(f => f.id === m.id)}
+                onMovieSelect={onMovieSelect} 
               />
             ))}
           </div>

@@ -1,6 +1,6 @@
 import MovieCard from '../components/MovieCard';
 
-function Favorites({ toggleFav, favs }) {
+function Favorites({ toggleFav, favs, onMovieSelect }) {
   return (
     <div className="page-view">
       <div className="section-header">
@@ -14,7 +14,8 @@ function Favorites({ toggleFav, favs }) {
               key={m.id} 
               movie={m} 
               onToggleFav={toggleFav} 
-              isFavorite={true} 
+              isFavorite={true}
+              onMovieSelect={onMovieSelect}
             />
           ))}
         </div>

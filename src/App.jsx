@@ -5,8 +5,12 @@ import Home from './pages/Home';
 import Popular from './pages/Popular';
 import Favorites from './pages/Favorites';
 import './App.css';
+import MovieModal from './components/MovieModal';
 
 function App() {
+
+  const [selectedMovie, setSelectedMovie] = useState(null);
+
   const [favorites, setFavorites] = useState(() => {
     const saved = localStorage.getItem('movie-app-favs');
     return saved ? JSON.parse(saved) : [];
@@ -26,10 +30,13 @@ function App() {
     <div className="container">
       <Navbar favCount={favorites.length} />
       <Routes>
-        <Route path="/" element={<Home toggleFav={toggleFavorite} favs={favorites} />} />
-        <Route path="/popular" element={<Popular toggleFav={toggleFavorite} favs={favorites} />} />
-        <Route path="/favorites" element={<Favorites toggleFav={toggleFavorite} favs={favorites} />} />
+        <Route path="/" element={<Home toggleFav={toggleFavorite} favs={favorites} onMovieSelect={setSelectedMovie} />} />
+        <Route path="/popular" element={<Popular toggleFav={toggleFavorite} favs={favorites} onMovieSelect={setSelectedMovie} />} />
+        <Route path="/favorites" element={<Favorites toggleFav={toggleFavorite} favs={favorites} onMovieSelect={setSelectedMovie}/>} />
       </Routes>
+
+      {/* De Modal onderaan */}
+      <MovieModal movie={selectedMovie} onClose={() => setSelectedMovie(null)} />
     </div>
   );
 }
