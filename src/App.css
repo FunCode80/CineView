@@ -362,6 +362,32 @@ body {
   transition: var(--transition);
 }
 
+.share-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+  padding: 12px 24px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%; /* Op mobiel over de volle breedte */
+  transition: var(--transition);
+}
+
+.share-btn:hover {
+  background: #ff0a16;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .share-btn { width: auto; } /* Op desktop gewoon een normale knop */
+}
+
 .close-btn:hover { background: var(--primary); }
 
 .modal-header {
