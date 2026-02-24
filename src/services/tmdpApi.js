@@ -17,3 +17,10 @@ export const searchMovies = async (query, page = 1) => {
   const res = await fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&language=nl-NL&query=${encodeURIComponent(query)}&page=${page}`);
   return await res.json();
 };
+
+export const fetchMovieVideos = async (movieId) => {
+  const res = await fetch(`${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}&language=nl-NL`);
+  const data = await res.json();
+  // Filter op YouTube trailers, of pak de eerste beschikbare video
+  return data.results.find(v => v.type === 'Trailer' && v.site === 'YouTube') || data.results[0];
+};

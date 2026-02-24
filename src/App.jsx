@@ -21,15 +21,18 @@ function App() {
     localStorage.setItem('movie-app-favs', JSON.stringify(favorites));
   }, [favorites]);
 
+  // Effect voor Deep Linking (?movie=ID)
   useEffect(() => {
     const movieId = searchParams.get('movie');
-    if (movieId) {
-      // Haal de filmdetails op basis van het ID uit de URL
-      fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${import.meta.env.VITE_TMDB_API_KEY}&language=nl-NL`)
+    if (movieId && !selectedMovie) {
+      const apiKey = import.meta.env.VITE_TMDB_API_KEY;
+      fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=nl-NL`)
         .then(res => res.json())
-        .then(data => setSelectedMovie(data));
+        .then(data => setSelectedMovie(data))
+        .catch(err => console.error("Fout bij deep link:", err));
     }
   }, [searchParams]);
+
 
   const toggleFavorite = (movie) => {
     setFavorites(prev => prev.some(f => f.id === movie.id) 
