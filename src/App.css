@@ -472,7 +472,7 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, #181818 5%, transparent 100%);
-  z-index: 2; /* Ligt boven de afbeelding, maar ONDER de knop */
+  z-index: 11; /* Ligt boven de afbeelding, maar ONDER de knop */
   pointer-events: none; /* Cruciaal: kliks gaan hier DOORHEEN */
 }
 
@@ -483,11 +483,43 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 10; /* Ligt BOVEN de overlay en afbeelding */
-  transition: background 0.3s;
+  z-index: 10;
   cursor: pointer;
+  background-color: transparent; /* De basis is leeg */
 }
+
+/* Hier plaatsen we de gradient */
+.play-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #181818 5%, transparent 100%);
+  opacity: 1;
+  transition: opacity 1s ease; /* Dit zorgt voor de trage fade-out */
+  z-index: -1; /* Achter de tekst/iconen */
+}
+
+/* Optioneel: de lichte zwarte waas die je eerder wilde op hover */
+.play-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 300ms ease;
+  z-index: -1;
+}
+
+/* Bij hover: gradient wegfaden, waas infaden */
+.play-overlay:hover::before {
+  opacity: 0; /* De gradient verdwijnt langzaam */
+}
+
+.play-overlay:hover::after {
+  opacity: 1; /* De lichte waas verschijnt langzaam */
+}
+
+
 
 .modal-title {
   position: absolute;
@@ -498,9 +530,7 @@ body {
   opacity: .2;
 }
 
-.play-overlay:hover {
-  background: rgba(0, 0, 0, .1);
-}
+
 
 .play-overlay:hover .play-button-circle {
   opacity: .8;
